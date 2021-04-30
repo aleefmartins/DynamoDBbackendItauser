@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 
 public class UserAccountController {
 
@@ -23,8 +23,8 @@ public class UserAccountController {
     }
 
     @GetMapping("/userAccount/all")
-    public List<UserAccount> getUserAccount (){
-        return List<UserAccount> userAccountRepository.getAllUsers();
+    public List <UserAccount> getUserAccount (){
+        return userAccountRepository.getAllUsers();
     }
 
     @GetMapping("/userAccount/{id}")

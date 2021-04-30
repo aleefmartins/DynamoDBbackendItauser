@@ -2,14 +2,13 @@ package com.backenddynamouser.repository;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
 import com.backenddynamouser.entity.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -28,8 +27,8 @@ public class UserAccountRepository {
     }
 
     public List <UserAccount> getAllUsers(){
-        List <UserAccount> userAccount = new ArrayList<>();
-            return userAccount;
+        List <UserAccount> allusers = dynamoDBMapper.scan(UserAccount.class, new DynamoDBScanExpression());
+            return allusers;
     }
 
     public String delete(String userId){
