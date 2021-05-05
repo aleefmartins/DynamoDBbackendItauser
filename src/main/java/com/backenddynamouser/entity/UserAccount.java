@@ -22,13 +22,13 @@ public class UserAccount {
     private String userName;
 
     @DynamoDBAttribute
-    private String userPhone;
+    private Long userPhone;
 
     @DynamoDBAttribute
-    private String userCpf;
+    private Long userCpf;
 
     @DynamoDBAttribute
-    private String userRg;
+    private Long userRg;
 
     @DynamoDBAttribute
     private String userEndereco;

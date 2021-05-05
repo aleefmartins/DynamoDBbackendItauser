@@ -33,12 +33,12 @@ public class UserAccountController {
     }
 
     @DeleteMapping ("/userAccount/{id}")
-    public String deleteUserAccount(@PathVariable("id") String userId){
+    public UserAccount deleteUserAccount(@PathVariable("id") String userId){
         return userAccountRepository.delete(userId);
     }
 
     @PutMapping ("/userAccount/{id}")
-    public String updateUserAccount(@PathVariable("id") String userId, @RequestBody UserAccount userAccount){
+    public UserAccount updateUserAccount(@PathVariable("id") String userId, @RequestBody UserAccount userAccount){
         return userAccountRepository.update(userId, userAccount);
     }
 }

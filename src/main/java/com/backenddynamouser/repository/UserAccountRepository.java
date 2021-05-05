@@ -31,19 +31,19 @@ public class UserAccountRepository {
             return allusers;
     }
 
-    public String delete(String userId){
-        UserAccount emp = dynamoDBMapper.load(UserAccount.class, userId);
-        dynamoDBMapper.delete(emp);
-        return "Conta deletada com sucesso!";
+    public UserAccount delete(String userId){
+        UserAccount del = dynamoDBMapper.load(UserAccount.class, userId);
+        dynamoDBMapper.delete(del);
+        return del;
     }
 
-    public String update(String userId, UserAccount userAccount){
+    public UserAccount update(String userId, UserAccount userAccount){
         dynamoDBMapper.save(userAccount,
                 new DynamoDBSaveExpression()
                 .withExpectedEntry("userId",
                         new ExpectedAttributeValue(
                                 new AttributeValue().withS(userId)
                         )));
-        return userId;
+        return userAccount;
     }
 }
